@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Churrasqueira Quaresma</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">🍗 Churrasqueira Quaresma</h1>
+    <a href="#menu" class="bg-black text-white px-4 py-2 rounded-xl">Menu da Semana</a>
+  </header>
+
+  <!-- Hero -->
+  <section class="pt-24 text-center p-6">
+    <h2 class="text-3xl font-semibold mb-4">Bem-vindo à Churrasqueira Quaresma</h2>
+    <p class="text-gray-600 mb-6">Sabores autênticos, grelhados no carvão desde 1998.</p>
+    <img src="hero.jpg" alt="Churrasqueira" class="rounded-2xl shadow-lg mx-auto"/>
+  </section>
+
+  <!-- Menu da Semana -->
+  <section id="menu" class="p-6 max-w-xl mx-auto">
+    <h3 class="text-2xl font-semibold mb-4">🍴 Menu da Semana</h3>
+    <div class="bg-white rounded-2xl shadow p-6">
+      <ul id="menu-list" class="space-y-3">
+        <!-- O JS vai preencher aqui -->
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contactos -->
+  <section class="p-6 max-w-xl mx-auto">
+    <h3 class="text-2xl font-semibold mb-4">📍 Onde estamos</h3>
+    <p>Rua Principal, Loures</p>
+    <p>📞 912 345 678</p>
+    <iframe class="rounded-2xl mt-4 w-full h-64"
+      src="https://maps.google.com/maps?q=loures&t=&z=13&ie=UTF8&iwloc=&output=embed">
+    </iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer class="p-6 text-center text-gray-500">
+    © 2025 Churrasqueira Quaresma
+  </footer>
+
+  <!-- Script para carregar o menu -->
+  <script>
+    const menuData = [
+      { prato: "Frango no Churrasco", preco: "8.50" },
+      { prato: "Bacalhau à Brás", preco: "9.90" },
+      { prato: "Feijoada à Portuguesa", preco: "7.80" }
+    ];
+
+    const menuList = document.getElementById("menu-list");
+    menuData.forEach(item => {
+      const li = document.createElement("li");
+      li.className = "flex justify-between";
+      li.innerHTML = `<span>${item.prato}</span><span class="font-semibold">${item.preco}€</span>`;
+      menuList.appendChild(li);
+    });
+  </script>
+
+</body>
+</html>
