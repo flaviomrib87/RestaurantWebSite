@@ -1,67 +1,211 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Churrasqueira Quaresma</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurante WebSite</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Restaurante WebSite — sabores caseiros, menu semanal e contactos." />
 </head>
 <body class="bg-gray-50 text-gray-900">
-
   <!-- Header -->
-  <header class="fixed top-0 w-full bg-white shadow p-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold">🍗 Churrasqueira Quaresma</h1>
-    <a href="#menu" class="bg-black text-white px-4 py-2 rounded-xl">Menu da Semana</a>
+  <header class="fixed top-0 z-20 w-full bg-white/90 backdrop-blur shadow-sm">
+    <div class="mx-auto max-w-5xl px-4 py-3 flex items-center justify-between">
+      <h1 class="text-xl font-bold tracking-tight">🍽️ Restaurante WebSite</h1>
+      <nav class="hidden sm:flex items-center gap-3">
+        <a href="#menu" class="px-4 py-2 rounded-xl border border-gray-300 hover:bg-gray-100 transition">Menu da Semana</a>
+        <a href="#historia" class="px-4 py-2 rounded-xl border border-gray-300 hover:bg-gray-100 transition">História</a>
+        <a href="#contactos" class="px-4 py-2 rounded-xl bg-black text-white hover:bg-gray-900 transition">Contactos</a>
+      </nav>
+      <a href="#menu" class="sm:hidden px-3 py-2 rounded-xl bg-black text-white">Menu</a>
+    </div>
   </header>
 
   <!-- Hero -->
-  <section class="pt-24 text-center p-6">
-    <h2 class="text-3xl font-semibold mb-4">Bem-vindo à Churrasqueira Quaresma</h2>
-    <p class="text-gray-600 mb-6">Sabores autênticos, grelhados no carvão desde 1998.</p>
-    <img src="hero.jpg" alt="Churrasqueira" class="rounded-2xl shadow-lg mx-auto"/>
-  </section>
-
-  <!-- Menu da Semana -->
-  <section id="menu" class="p-6 max-w-xl mx-auto">
-    <h3 class="text-2xl font-semibold mb-4">🍴 Menu da Semana</h3>
-    <div class="bg-white rounded-2xl shadow p-6">
-      <ul id="menu-list" class="space-y-3">
-        <!-- O JS vai preencher aqui -->
-      </ul>
+  <section class="pt-28">
+    <div class="mx-auto max-w-5xl px-4">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-semibold leading-tight mb-4">Bem‑vindo ao <span class="whitespace-nowrap">Restaurante WebSite</span></h2>
+          <p class="text-gray-600 mb-6">Cozinha tradicional com um toque contemporâneo. Ingredientes frescos, confecionados com tempo e cuidado, todos os dias.</p>
+          <div class="flex gap-3">
+            <a href="#menu" class="px-5 py-3 rounded-xl bg-black text-white hover:bg-gray-900 transition">Ver Menu da Semana</a>
+            <a href="#historia" class="px-5 py-3 rounded-xl border border-gray-300 hover:bg-gray-100 transition">Conhecer História</a>
+          </div>
+        </div>
+        <div>
+          <img src="hero.jpg" alt="Prato servido numa mesa" class="rounded-2xl shadow-lg w-full aspect-[16/10] object-cover bg-gray-200"/>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Contactos -->
-  <section class="p-6 max-w-xl mx-auto">
-    <h3 class="text-2xl font-semibold mb-4">📍 Onde estamos</h3>
-    <p>Rua Principal, Loures</p>
-    <p>📞 912 345 678</p>
-    <iframe class="rounded-2xl mt-4 w-full h-64"
-      src="https://maps.google.com/maps?q=loures&t=&z=13&ie=UTF8&iwloc=&output=embed">
-    </iframe>
+  <!-- Menu da Semana -->
+  <section id="menu" class="mx-auto max-w-5xl px-4 py-12">
+    <h3 class="text-2xl md:text-3xl font-semibold mb-2">🍴 Menu da Semana</h3>
+    <p class="text-gray-600 mb-6">Escolhe o dia para veres os pratos sugeridos.</p>
+
+    <!-- Tabs dos dias -->
+    <div class="flex flex-wrap gap-2 mb-6" id="tabs-dias"></div>
+
+    <div class="bg-white rounded-2xl shadow p-6">
+      <ul id="lista-pratos" class="space-y-3"></ul>
+      <p id="sem-pratos" class="hidden text-gray-500">Sem pratos definidos para este dia.</p>
+    </div>
+
+    <p class="mt-4 text-sm text-gray-500">* Preços indicativos. Sujeitos a alteração diária conforme mercado.</p>
+  </section>
+
+  <!-- História -->
+  <section id="historia" class="mx-auto max-w-5xl px-4 py-12">
+    <div class="bg-white rounded-2xl shadow p-6 md:p-8">
+      <h3 class="text-2xl md:text-3xl font-semibold mb-4">A Nossa História</h3>
+      <p class="text-gray-700 leading-relaxed mb-4">
+        O <strong>Restaurante WebSite</strong> nasceu de uma ideia simples: servir comida honesta, saborosa e sem complicações. Começámos numa cozinha pequena, com receitas de família e foco no produto sazonal. Ao longo dos anos, aperfeiçoámos técnicas, modernizámos processos e mantivemos aquilo que mais importa: o sabor.
+      </p>
+      <p class="text-gray-700 leading-relaxed mb-4">
+        Hoje, continuamos a grelhar, estufar e assar como antigamente, mas com atenção a nutrição, sustentabilidade e experiência do cliente. O nosso menu semanal reflete o calendário agrícola e a inspiração da equipa.
+      </p>
+      <div class="grid sm:grid-cols-3 gap-4 mt-6">
+        <div class="p-4 rounded-xl bg-gray-50">
+          <p class="text-sm text-gray-500">Desde</p>
+          <p class="text-xl font-semibold">1998</p>
+        </div>
+        <div class="p-4 rounded-xl bg-gray-50">
+          <p class="text-sm text-gray-500">Especialidade</p>
+          <p class="text-xl font-semibold">Grelhados e pratos do dia</p>
+        </div>
+        <div class="p-4 rounded-xl bg-gray-50">
+          <p class="text-sm text-gray-500">Compromisso</p>
+          <p class="text-xl font-semibold">Ingredientes frescos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contactos & Horário -->
+  <section id="contactos" class="mx-auto max-w-5xl px-4 py-12">
+    <div class="grid md:grid-cols-2 gap-6 items-start">
+      <div class="bg-white rounded-2xl shadow p-6 md:p-8">
+        <h3 class="text-2xl font-semibold mb-4">📍 Onde estamos</h3>
+        <div class="space-y-2 text-gray-700">
+          <p>Rua Principal, Loures</p>
+          <p>📞 912 345 678</p>
+          <p>✉️ contacto@restaurantewebsite.pt</p>
+        </div>
+        <h4 class="text-xl font-semibold mt-6 mb-2">🕒 Horário</h4>
+        <ul class="text-gray-700 space-y-1">
+          <li>Seg–Sex: 12:00 – 15:00, 19:00 – 22:30</li>
+          <li>Sáb: 12:30 – 15:30, 19:00 – 23:00</li>
+          <li>Dom: Encerrado</li>
+        </ul>
+      </div>
+      <div>
+        <iframe class="rounded-2xl w-full h-80 shadow" src="https://maps.google.com/maps?q=loures&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer class="p-6 text-center text-gray-500">
-    © 2025 Churrasqueira Quaresma
+  <footer class="px-4 py-8 text-center text-gray-500">
+    © <span id="ano"></span> Restaurante WebSite
   </footer>
 
-  <!-- Script para carregar o menu -->
+  <!-- Script: Menu semanal por dias + UI tabs -->
   <script>
-    const menuData = [
-      { prato: "Frango no Churrasco", preco: "8.50" },
-      { prato: "Bacalhau à Brás", preco: "9.90" },
-      { prato: "Feijoada à Portuguesa", preco: "7.80" }
+    const dias = [
+      { id: 'segunda', rotulo: 'Segunda' },
+      { id: 'terca', rotulo: 'Terça' },
+      { id: 'quarta', rotulo: 'Quarta' },
+      { id: 'quinta', rotulo: 'Quinta' },
+      { id: 'sexta', rotulo: 'Sexta' },
+      { id: 'sabado', rotulo: 'Sábado' },
+      { id: 'domingo', rotulo: 'Domingo' },
     ];
 
-    const menuList = document.getElementById("menu-list");
-    menuData.forEach(item => {
-      const li = document.createElement("li");
-      li.className = "flex justify-between";
-      li.innerHTML = `<span>${item.prato}</span><span class="font-semibold">${item.preco}€</span>`;
-      menuList.appendChild(li);
-    });
-  </script>
+    // Exemplo de dados do menu por dia
+    const menuSemana = {
+      segunda: [
+        { prato: 'Sopa do dia', preco: '2.20' },
+        { prato: 'Frango grelhado', preco: '8.50' },
+        { prato: 'Bacalhau à Brás', preco: '9.90' },
+      ],
+      terca: [
+        { prato: 'Creme de legumes', preco: '2.20' },
+        { prato: 'Carne de porco à alentejana', preco: '9.50' },
+        { prato: 'Dourada grelhada', preco: '11.00' },
+      ],
+      quarta: [
+        { prato: 'Caldo verde', preco: '2.20' },
+        { prato: 'Feijoada à portuguesa', preco: '8.80' },
+        { prato: 'Bitoque', preco: '8.90' },
+      ],
+      quinta: [
+        { prato: 'Sopa de peixe', preco: '2.60' },
+        { prato: 'Arroz de pato', preco: '9.90' },
+        { prato: 'Francesinha', preco: '10.50' },
+      ],
+      sexta: [
+        { prato: 'Sopa de legumes', preco: '2.20' },
+        { prato: 'Polvo à lagareiro', preco: '14.50' },
+        { prato: 'Massada de peixe', preco: '10.90' },
+      ],
+      sabado: [
+        { prato: 'Canja de galinha', preco: '2.20' },
+        { prato: 'Leitão assado', preco: '15.90' },
+        { prato: 'Salmão grelhado', preco: '12.50' },
+      ],
+      domingo: [] // encerrado neste exemplo
+    };
 
+    const tabsEl = document.getElementById('tabs-dias');
+    const listaEl = document.getElementById('lista-pratos');
+    const semPratosEl = document.getElementById('sem-pratos');
+
+    // Render tabs
+    let tabAtiva = dias[new Date().getDay() - 1]; // 0=Dom… adaptar para PT (Seg=1). Ajuste abaixo.
+    if (!tabAtiva || tabAtiva.id === 'domingo') tabAtiva = dias[0];
+
+    function renderTabs() {
+      tabsEl.innerHTML = '';
+      dias.forEach(d => {
+        const btn = document.createElement('button');
+        btn.className = `px-3 py-2 rounded-xl border text-sm transition ${d.id === tabAtiva.id ? 'bg-black text-white border-black' : 'border-gray-300 hover:bg-gray-100'}`;
+        btn.textContent = d.rotulo;
+        btn.onclick = () => { tabAtiva = d; renderTabs(); renderLista(); };
+        tabsEl.appendChild(btn);
+      });
+    }
+
+    function renderLista() {
+      const itens = menuSemana[tabAtiva.id] || [];
+      listaEl.innerHTML = '';
+      if (!itens.length) {
+        semPratosEl.classList.remove('hidden');
+        return;
+      }
+      semPratosEl.classList.add('hidden');
+      itens.forEach(item => {
+        const li = document.createElement('li');
+        li.className = 'flex items-center justify-between gap-4';
+        li.innerHTML = `<span class="truncate">${item.prato}</span><span class="font-semibold whitespace-nowrap">${Number(item.preco).toFixed(2)}€</span>`;
+        listaEl.appendChild(li);
+      });
+    }
+
+    // Ajuste do dia atual (Seg=0 no nosso array):
+    (function ajustarDiaInicial(){
+      const hoje = new Date();
+      const jsDay = hoje.getDay(); // 0=Dom,1=Seg,...
+      const map = {1:'segunda',2:'terca',3:'quarta',4:'quinta',5:'sexta',6:'sabado',0:'domingo'};
+      tabAtiva = dias.find(d => d.id === map[jsDay]) || dias[0];
+    })();
+
+    renderTabs();
+    renderLista();
+
+    // Ano no footer
+    document.getElementById('ano').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
